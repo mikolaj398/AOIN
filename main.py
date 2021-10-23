@@ -1,2 +1,6 @@
+from controls import *
+
 if __name__ == "__main__":
-    print('Init')
+    input_menu()
+
+
