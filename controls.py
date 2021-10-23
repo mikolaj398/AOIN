@@ -13,7 +13,7 @@ def input_menu():
         if option == 2:
             bag_size, weights = file_input()
             solver_menu(bag_size, weights)
-            
+
         clear_console()
         print('1. Wpisz dane recznie')
         print('2. Wczytaj z pliku')
@@ -29,6 +29,7 @@ def solver_menu(bag_size, weights):
             print('no fajny mrowkowy')
 
         clear_console()
+        print(bag_size, weights)
         print('1. Algorytm referencyjny')
         print('2. Algorytm mrowkowy')
         print('3. Wroc')
