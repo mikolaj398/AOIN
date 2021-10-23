@@ -24,7 +24,8 @@ def solver_menu(bag_size, items):
     option = -1
     while option != 3:
         if option == 1:
-            greedy_search(bag_size, items)
+            solution_weight, value, taken_items, elapsed_time = greedy_search(bag_size, items)
+            pretty_print_solution(solution_weight, value, taken_items, elapsed_time)
             print('no fajny referencyjny')
         if option == 2:
             print('no fajny mrowkowy')
@@ -34,3 +35,11 @@ def solver_menu(bag_size, items):
         print('2. Algorytm mrowkowy')
         print('3. Wroc')
         option = int(input())
+
+def pretty_print_solution(bag_size, value, taken_items, elapsed_time):
+    print(f'Rozwiązanie znaleziono w {elapsed_time} sekund')
+    print(f'Waga znalezionego rozwiazania: {bag_size}')
+    print(f'Wartosc znalezionego rozwiazania: {value}')
+    print('Zawartość plecaka:')
+    for item in taken_items:
+        print(f"Waga: {item['weight']}, Wartosc: {item['value']}")
