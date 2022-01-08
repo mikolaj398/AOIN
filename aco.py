@@ -41,7 +41,6 @@ def func(bag_size, items):
     global_solution = {}
 
     for _ in range(NUMBER_OF_ITERATIONS):
-        print(_)
         probabilities = calc_probabilities(items, pheromones, attractiveness)        
         ant_profit = 0
         ant_solution = {}

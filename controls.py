@@ -1,5 +1,7 @@
 from data_input import *
 from solvers import *
+
+
 def clear_console():
     for _ in range(100):
         print('\n')
@@ -22,24 +24,34 @@ def input_menu():
 
 def solver_menu(bag_size, items):
     option = -1
-    while option != 3:
+    while option != 4:
         if option == 1:
             solution_weight, value, taken_items, elapsed_time = greedy_search(bag_size, items)
             pretty_print_solution(solution_weight, value, taken_items, elapsed_time)
         if option == 2:
             solution_weight, value, taken_items, elapsed_time = ant_colony(bag_size, items)
             pretty_print_solution(solution_weight, value, taken_items, elapsed_time)
+        if option == 3:
+            print('============== Algorytm zachlanny ==============')
+            solution_weight, value, taken_items, elapsed_time = greedy_search(bag_size, items)
+            pretty_print_solution(solution_weight, value, taken_items, elapsed_time, list_items = False)
+            
+            print('============== Algorytm mrowkowy ==============')
+            solution_weight, value, taken_items, elapsed_time = ant_colony(bag_size, items)
+            pretty_print_solution(solution_weight, value, taken_items, elapsed_time, list_items = False)
 
         # clear_console()
         print('1. Algorytm zachlanny')
         print('2. Algorytm mrowkowy')
-        print('3. Wroc')
+        print('3. Porownaj')
+        print('4. Wroc')
         option = int(input())
 
-def pretty_print_solution(bag_size, value, taken_items, elapsed_time):
+def pretty_print_solution(bag_size, value, taken_items, elapsed_time, list_items = True):
     print(f'Rozwiązanie znaleziono w {elapsed_time} sekund')
     print(f'Waga znalezionego rozwiazania: {bag_size}')
     print(f'Wartosc znalezionego rozwiazania: {value}')
-    print('Zawartość plecaka:')
-    for item in taken_items:
-        print(f"Waga: {item['weight']}, Wartosc: {item['value']}")
+    if list_items:
+        print('Zawartość plecaka:')
+        for item in taken_items:
+            print(f"Waga: {item['weight']}, Wartosc: {item['value']}")

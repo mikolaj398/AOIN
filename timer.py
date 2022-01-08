@@ -6,6 +6,5 @@ def solver_timer(method):
         bag_size, value, taken_items = method(*args, **kw)
         end_time = time.time()
 
-        print(end_time - start_time)
-        return bag_size, value, taken_items, (end_time - start_time)
+        return bag_size, value, taken_items, round((end_time - start_time), 2)
     return timed
