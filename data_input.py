@@ -10,7 +10,7 @@ def manual_input():
         item = {}
         item['weight'] = (int(input(f'Waga {item_index + 1} przedmiotu: ')))
         item['value'] = (int(input(f'Wartosc {item_index + 1} przedmiotu: ')))
-        items.append(item)
+        items[str(item_index)] = item
 
     return bag_size, items
 
@@ -24,11 +24,11 @@ def file_input():
         lines = data_file.readlines()
         bag_size = int(lines[0])
 
-        items = []
+        items = {}
         for i in range(1, len(lines)):
             item = {}
             item['weight'] = (int(lines[i].split(',')[0]))
             item['value'] = (int(lines[i].split(',')[1]))
-            items.append(item)
+            items[str(i-1)] = item
 
     return bag_size, items

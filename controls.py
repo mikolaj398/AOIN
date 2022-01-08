@@ -26,9 +26,9 @@ def solver_menu(bag_size, items):
         if option == 1:
             solution_weight, value, taken_items, elapsed_time = greedy_search(bag_size, items)
             pretty_print_solution(solution_weight, value, taken_items, elapsed_time)
-            print('no fajny referencyjny')
         if option == 2:
-            print('no fajny mrowkowy')
+            solution_weight, value, taken_items, elapsed_time = ant_colony(bag_size, items)
+            pretty_print_solution(solution_weight, value, taken_items, elapsed_time)
 
         # clear_console()
         print('1. Algorytm zachlanny')
