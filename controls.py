@@ -1,6 +1,6 @@
 from data_input import *
 from solvers import *
-
+from tests import run_tests
 
 def clear_console():
     for _ in range(100):
@@ -8,18 +8,21 @@ def clear_console():
 
 def input_menu():
     option = -1
-    while option != 3:
+    while option != 4:
         if option == 1:
             bag_size, items = manual_input()
             solver_menu(bag_size, items)
         if option == 2:
             bag_size, items = file_input()
             solver_menu(bag_size, items)
+        if option == 3:
+            run_tests()
 
         # clear_console()
         print('1. Wpisz dane recznie')
         print('2. Wczytaj z pliku')
-        print('3. Wyjscie')
+        print('3. Testuj')
+        print('4. Wyjscie')
         option = int(input())
 
 def solver_menu(bag_size, items):

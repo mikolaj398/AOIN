@@ -14,12 +14,13 @@ def manual_input():
 
     return bag_size, items
 
-def file_input():
+def file_input(path = None):
     """ 
     Reads int values in file. First line is a bag size and the rest are item weight and item value
     separated by coma.
     """
-    path = input('Podaj sciezke lub nazwe pliku: ')
+    if path == None:
+        path = input('Podaj sciezke lub nazwe pliku: ')
     with open(path) as data_file:
         lines = data_file.readlines()
         bag_size = int(lines[0])
