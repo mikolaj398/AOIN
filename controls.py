@@ -1,14 +1,14 @@
 from data_input import *
 from solvers import *
 from tests import run_tests
-
+from generate_data import *
 def clear_console():
     for _ in range(100):
         print('\n')
 
 def input_menu():
     option = -1
-    while option != 4:
+    while option != 5:
         if option == 1:
             bag_size, items = manual_input()
             solver_menu(bag_size, items)
@@ -17,12 +17,17 @@ def input_menu():
             solver_menu(bag_size, items)
         if option == 3:
             run_tests()
+        if option == 4:
+            print('Wpisz ile plików z instancja problemu utworzyc:')
+            num_of_files = int(input())
+            generate(num_of_files)
 
         # clear_console()
         print('1. Wpisz dane recznie')
         print('2. Wczytaj z pliku')
         print('3. Testuj')
-        print('4. Wyjscie')
+        print('4. Generuj dane')
+        print('5. Wyjscie')
         option = int(input())
 
 def solver_menu(bag_size, items):

@@ -5,7 +5,7 @@ def manual_input():
     bag_size = int(input('Podaj rozmiar plecaka: '))
     items_count = int(input('Podaj ilosc przedmitow: '))
 
-    items = []
+    items = {}
     for item_index in range(items_count):
         item = {}
         item['weight'] = (int(input(f'Waga {item_index + 1} przedmiotu: ')))
